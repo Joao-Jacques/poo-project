@@ -151,7 +151,7 @@ npm install
 
 * Nem todas as ferramentas funcionam em todos os objetos.
 * Algumas ferramentas têm uso limitado.
-* Use a lanterna nos locais escuros para revelar segredos.
+* Use a lanterna em objetos para revelar segredos.
 * Leia as mensagens do console para entender o enredo e encontrar pistas.
 
 ---

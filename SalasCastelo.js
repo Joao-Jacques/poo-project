@@ -1,5 +1,5 @@
 import { Sala } from "./Basicas.js";
-import { PortaBiblioteca, Guardanapo, EstanteSegredos, PoçãoSecreta, DiarioDama, EscuridaoTorre } from "./ObjetosCastelo.js";
+import { PortaBiblioteca, Guardanapo, EstanteSegredos, PoçãoSecreta, DiarioDama } from "./ObjetosCastelo.js";
 import { LanternaMagica, ChaveDourada, CristalDecodificador, PenaVerdade } from "./FerramentasCastelo.js";
 
 /**
@@ -117,27 +117,13 @@ export class TorreAlquimista extends Sala {
         super("Torre_Alquimista", engine);
         this.ferramentas.set("pena_verdade", new PenaVerdade());
         this.objetos.set("pocao", new PoçãoSecreta());
-        this.objetos.set("escuridao_torre", new EscuridaoTorre());
         this.portas.set("Biblioteca", null);
     }
 
     /**
-     * Permite usar a lanterna mágica para iluminar a torre e a pena da verdade na poção.
+     * Permite usar a pena da verdade na poção.
      */
     usa(ferramenta, objeto) {
-        // Ilumina a torre
-        if (
-            ferramenta === "lanterna_magica" &&
-            objeto === "escuridao_torre" &&
-            this.engine.mochila.tem("lanterna_magica")
-        ) {
-            const escuridao = this.objetos.get("escuridao_torre");
-            const lanterna = this.engine.mochila.pega("lanterna_magica");
-            if (escuridao && lanterna && escuridao.usar(lanterna)) {
-                console.log("Você iluminou a torre! Agora pode ver os objetos.");
-                return true;
-            }
-        }
         // Usa a pena na poção
         if (
             ferramenta === "pena_verdade" &&

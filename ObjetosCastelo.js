@@ -71,7 +71,7 @@ export class PoçãoSecreta extends Objeto {
 
 /**
  * DiarioDama: representa o diário da dama na Ala dos Servos.
- * Só pode ser usado com a Pena da Verdade para revelar sua cumplicidade.
+ * Só pode ser usado com a Lanterna Mágica para revelar sua cumplicidade.
  */
 export class DiarioDama extends Objeto {
     constructor() {
@@ -84,30 +84,6 @@ export class DiarioDama extends Objeto {
      */
     usar(ferramenta) {
         if (ferramenta instanceof LanternaMagica && ferramenta.usar()) {
-            this.acaoOk = true;
-            return true;
-        }
-        return false;
-    }
-}
-
-/**
- * EscuridaoTorre: representa a escuridão da Torre do Alquimista.
- * Só pode ser iluminada com a Lanterna Mágica.
- */
-export class EscuridaoTorre extends Objeto {
-    constructor() {
-        super("escuridao_torre", "A torre está totalmente escura.", "A sala foi iluminada!");
-        this.iluminada = false;
-    }
-    /**
-     * Permite iluminar a torre usando a Lanterna Mágica.
-     * @param {Ferramenta} ferramenta
-     * @returns {boolean}
-     */
-    usar(ferramenta) {
-        if (ferramenta instanceof LanternaMagica && ferramenta.usar()) {
-            this.iluminada = true;
             this.acaoOk = true;
             return true;
         }
