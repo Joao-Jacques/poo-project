@@ -44,7 +44,7 @@ Descobrir **quem traiu a família real** e escapar do castelo com o Coração de
 ### 1. Saguão Principal
 
 Vasta entrada coberta de poeira, tapeçarias desbotadas e o brasão da família Laufen rasgado ao meio.
-Conexões: Biblioteca, Sala do Conselho, Salão de Banquetes.
+Conexões: Biblioteca, Salão de Banquetes.
 **Observação:** Ponto inicial do jogo. Contém o bilhete misterioso que dá contexto à tragédia.
 
 ### 2. Biblioteca Proibida
