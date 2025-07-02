@@ -102,8 +102,6 @@ Dicas:
 
 ---
 
----
-
 ## 🏆 Caminho Sugerido (Passo a Passo)
 
 Digite os comandos a seguir, um de cada vez, para solucionar o enigma e vencer:
