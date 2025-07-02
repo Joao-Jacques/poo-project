@@ -21,13 +21,18 @@ export class Ferramenta {
 
 export class Mochila {
 	#ferramentas;
+	#limite;
 
-	constructor() {
+	constructor(limite = 3) {
 		this.#ferramentas = [];
+		this.#limite = limite;
 	}
 
 	guarda(ferramenta) {
 		validate(ferramenta, Ferramenta);
+		if (this.#ferramentas.length >= this.#limite) {
+			throw new Error(`A mochila está cheia! Limite de ${this.#limite} itens.`);
+		}
 		this.#ferramentas.push(ferramenta);
 	}
 
@@ -40,6 +45,16 @@ export class Mochila {
 	tem(nomeFerramenta) {
 		validate(arguments, ["String"]);
 		return this.#ferramentas.some(f => f.nome === nomeFerramenta);
+	}
+
+	remover(nomeFerramenta) {
+		validate(arguments, ["String"]);
+		const idx = this.#ferramentas.findIndex(f => f.nome === nomeFerramenta);
+		if (idx !== -1) {
+			this.#ferramentas.splice(idx, 1);
+			return true;
+		}
+		return false;
 	}
 
 	inventario() {
@@ -233,10 +248,21 @@ export class Engine {
 					this.#fim = true;
 					break;
 				case "pega":
-					if (this.salaCorrente.pega(tokens[1])) {
-						console.log(`\n✅  ${tokens[1]} guardado!\n`);
+					try {
+						if (this.salaCorrente.pega(tokens[1])) {
+							console.log(`\n✅  ${tokens[1]} guardado!\n`);
+						} else {
+							console.log(`\n❌  Objeto ${tokens[1]} não encontrado.\n`);
+						}
+					} catch (e) {
+						console.log(`\n❌ ${e.message}\n`);
+					}
+					break;
+				case "remover":
+					if (this.#mochila.remover(tokens[1])) {
+						console.log(`\n🗑️  ${tokens[1]} removido da mochila.\n`);
 					} else {
-						console.log(`\n❌  Objeto ${tokens[1]} não encontrado.\n`);
+						console.log(`\n❌  ${tokens[1]} não está na mochila.\n`);
 					}
 					break;
 				case "inventario":
@@ -259,6 +285,22 @@ export class Engine {
 					} else {
 						this.#salaCorrente = novaSala;
 						console.log("\n🚪 Você mudou de sala!\n");
+					}
+					break;
+				case "acusar":
+					// Só pode acusar na Cripta Real e com a Pena da Verdade
+					if (this.salaCorrente.nome === "Cripta_Real" && this.#mochila.tem("pena_verdade")) {
+						if (tokens[1] && tokens[1].toLowerCase() === "capitao") {
+							console.log("\n🏆 Parabéns! Você acusou corretamente o Capitão da Guarda e escapou do castelo!\n");
+							this.#fim = true;
+						} else {
+							console.log("\n❌ Acusação incorreta. Sua alma foi aprisionada no castelo!\n");
+							this.#fim = true;
+						}
+					} else if (this.salaCorrente.nome !== "Cripta_Real") {
+						console.log("\n❌ Você só pode fazer a acusação final na Cripta Real!\n");
+					} else if (!this.#mochila.tem("pena_verdade")) {
+						console.log("\n❌ Você precisa da Pena da Verdade para acusar!\n");
 					}
 					break;
 				default:

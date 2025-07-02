@@ -1,5 +1,27 @@
 // Importa a classe principal do jogo, responsável por criar o cenário e controlar o fluxo.
+
 import { JogoCastelo } from "./JogoCastelo.js";
+
+console.log(`
+    ============================================================
+                        TUTORIAL DO JOGO
+    ============================================================
+    Comandos principais:
+    - pega [item]         : pega um objeto ou ferramenta da sala (máx. 3 itens na mochila)
+    - remover [item]      : remove um item da mochila (Cuidado, remover o item fará com que ele não possa mais ser usado!)
+    - inventario          : mostra os itens na mochila
+    - usa [item] [alvo]   : usa um item da mochila em um objeto da sala
+    - sai [nome_sala]     : muda para outra sala conectada
+    - acusar [nome]       : faz a acusação final (apenas na Cripta Real, com a Pena da Verdade)
+    - fim                 : encerra o jogo
+
+    Dicas:
+    - Explore as salas, colete pistas e ferramentas.
+    - Use as ferramentas nos objetos certos para avançar.
+    - A mochila tem limite de 3 itens, remova itens se necessário.
+    - Para vencer, chegue à Cripta Real com a Pena da Verdade e acuse o verdadeiro traidor.
+    `);
+
 
 console.log(`
     ============================================================
@@ -17,8 +39,8 @@ console.log(`
     Agora, para escapar, será preciso explorar as ruínas, coletar pistas e descobrir:
     >>> Quem foi o verdadeiro traidor da realeza?
     
-    Encontre as pistas, use as ferramentas certas e faça a acusação correta para escapar com vida...
-    ou tenha sua alma aprisionada para sempre!
+    Encontre as pistas, use as ferramentas certas e, ao chegar à Sala do Trono com a Pena da Verdade, 
+    faça a acusação correta para escapar com vida. Se errar, sua alma será aprisionada para sempre!
     
     ============================================================
                     Boa sorte, aventureiro!

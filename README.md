@@ -82,13 +82,25 @@ Conexão: Apenas acessível pela Ala dos Servos.
 
 ---
 
-## 🔧 Comandos Disponíveis
+## 🕹️ Tutorial Rápido
 
-* `pega <ferramenta>` — Guarda uma ferramenta da sala na mochila
-* `usa <ferramenta> <objeto>` — Usa uma ferramenta da mochila sobre um objeto fixo na sala
-* `sai <nome da sala>` — Move para a sala indicada
-* `inventario` — Exibe as ferramentas atualmente na mochila
-* `fim` — Encerra o jogo
+Comandos principais:
+
+- `pega [item]`         : pega um objeto ou ferramenta da sala (máx. 3 itens na mochila)
+- `remover [item]`      : remove um item da mochila
+- `inventario`          : mostra os itens na mochila
+- `usa [item] [alvo]`   : usa um item da mochila em um objeto da sala
+- `sai [nome_sala]`     : muda para outra sala conectada
+- `acusar [nome]`       : faz a acusação final (apenas na Cripta Real, com a Pena da Verdade)
+- `fim`                 : encerra o jogo
+
+Dicas:
+- Explore as salas, colete pistas e ferramentas.
+- Use as ferramentas nos objetos certos para avançar.
+- A mochila tem limite de 3 itens, remova itens se necessário.
+- Para vencer, chegue à Cripta Real com a Pena da Verdade e acuse o verdadeiro traidor.
+
+---
 
 ---
 
