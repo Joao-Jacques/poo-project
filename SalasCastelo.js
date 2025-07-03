@@ -182,16 +182,16 @@ export class CriptaReal extends Sala {
         this.portas.set("Ala_Servos", null);
     }
     /**
-     * Permite acusar o capitão usando a pena da verdade. Qualquer outra acusação resulta em derrota.
+     * Não permite mais vencer usando 'usa pena_verdade capitao'.
+     * O comando correto é 'acusar <nome>' na Cripta Real.
      */
     usa(ferramenta, objeto) {
-        if (objeto === "capitao" && ferramenta === "pena_verdade" && this.engine.mochila.tem("pena_verdade")) {
-            this.engine.indicaFimDeJogo();
-            console.log("Você acusou o Capitão da Guarda! Vitória!");
-            return true;
+        if (ferramenta === "pena_verdade" && objeto === "capitao") {
+            console.log("Para fazer a acusação final, use o comando: acusar capitao");
+            return false;
         }
-        console.log("Acusação incorreta. Sua alma foi aprisionada no castelo!");
-        this.engine.indicaFimDeJogo();
+        // Caso tente usar outros itens/objetos
+        console.log("Nada acontece. Para acusar, use o comando 'acusar <nome>' na Cripta Real.");
         return false;
     }
 }

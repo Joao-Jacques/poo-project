@@ -120,7 +120,7 @@ sai Saguao_Principal
 sai Salao_Banquetes
 sai Ala_Servos
 sai Cripta_Real
-usa pena_verdade capitao
+acusar capitao
 ```
 
 ---
